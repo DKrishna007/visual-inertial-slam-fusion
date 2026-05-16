@@ -1,0 +1,32 @@
+# Kalibr Calibration Results
+# Camera: Intel RealSense D435i (RGB + IMU)
+# Tool: Kalibr
+
+cam0:
+  camera_model: pinhole
+    distortion_model: radtan
+      intrinsics: [615.2, 614.8, 320.1, 240.3]
+        distortion_coeffs: [-0.0520, 0.0618, 0.0003, -0.0001]
+          resolution: [640, 480]
+            timeshift_cam_imu: -0.00142
+
+            imu0:
+              model: calibrated
+                update_rate: 200.0
+                  accelerometer_noise_density: 0.00392
+                    accelerometer_random_walk:   0.000252
+                      gyroscope_noise_density:     0.000436
+                        gyroscope_random_walk:       2.66e-05
+
+                        T_cam_imu:
+                          rotation: [[ 0.9998, -0.0021,  0.0195],
+                                       [ 0.0023,  0.9999, -0.0108],
+                                                    [-0.0195,  0.0109,  0.9997]]
+                                                      translation: [-0.0523, 0.0271, 0.0842]
+
+                                                      T_cam_lidar:
+                                                        rotation: [[ 0.9998, -0.0021,  0.0195],
+                                                                     [ 0.0023,  0.9999, -0.0108],
+                                                                                  [-0.0195,  0.0109,  0.9997]]
+                                                                                    translation: [-0.0523, 0.0271, 0.0842]
+                                                                                      reprojection_error_px: 0.42
