@@ -1,0 +1,55 @@
+{
+    "experiment": "Visual-Inertial SLAM Fusion - ORB-SLAM3 + EKF",
+    "sensors": {
+          "camera": "Intel RealSense D435i (RGB-D)",
+          "lidar": "3D LiDAR (Velodyne VLP-16)",
+          "imu": "BMI055 (on RealSense)",
+          "calibration": "Kalibr extrinsic calibration"
+    },
+    "localization_results": {
+          "visual_only": {
+                  "trajectory_error_m": 0.072,
+                  "drift_rate_m_per_km": 0.18,
+                  "loop_closure_success": 0.91
+          },
+          "visual_inertial_ekf_fusion": {
+                  "trajectory_error_m": 0.019,
+                  "drift_rate_m_per_km": 0.04,
+                  "loop_closure_success": 0.98,
+                  "improvement_over_visual_only_pct": 73.6
+          },
+          "stated_improvement_pct": 30.0
+    },
+    "localization_accuracy": {
+          "mean_position_error_m": 0.019,
+          "max_position_error_m": 0.038,
+          "stated_accuracy_m": 0.02,
+          "achieved_accuracy_m": 0.019
+    },
+    "ekf_parameters": {
+          "state_vector": ["x", "y", "z", "vx", "vy", "vz", "qx", "qy", "qz", "qw"],
+          "process_noise": 0.01,
+          "measurement_noise_camera": 0.005,
+          "measurement_noise_lidar": 0.003,
+          "update_rate_hz": 100
+    },
+    "kalibr_calibration": {
+          "camera_lidar_extrinsic": {
+                  "translation_m": [0.025, -0.012, 0.043],
+                  "rotation_deg": [0.8, -1.2, 0.3]
+          },
+          "reprojection_error_px": 0.47
+    },
+    "orb_slam3_params": {
+          "features_per_frame": 1000,
+          "scale_levels": 8,
+          "scale_factor": 1.2,
+          "min_matches_for_loop": 20
+    },
+    "metadata": {
+          "date": "2026-05-18",
+          "environment": "Indoor corridors 200m total",
+          "orb_slam3_version": "1.0",
+          "realsense_sdk_version": "2.53.1"
+    }
+}
